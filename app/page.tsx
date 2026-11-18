@@ -10,6 +10,7 @@ type Alert = { id: string; barangay: string; label: string; type: string; reason
 type Dashboard = { user: User; station: Station | null; alerts: Alert[]; connection: { online?: boolean; connected?: boolean; lastSeen?: string | null; lastSeenAt?: string | null; updatedAt?: string | null } };
 const decisionLabels: Record<string, string> = { acknowledge: "Acknowledged", verify: "Verification requested", escalate: "Escalated for review" };
 const schoolNames: Record<string, string> = { "641": "Centro Escolar University Manila", "638": "San Beda University Manila", "404": "University of the East Manila" };
+const notificationSignature = (alert: Alert) => JSON.stringify([alert.id, alert.type, alert.label]);
 
 async function request<T>(url: string, options?: RequestInit): Promise<T> {
   const response = await fetch(url, { credentials: "same-origin", cache: "no-store", ...options });
@@ -59,9 +60,9 @@ export default function Home() {
       const next = await request<Dashboard>("/api/dashboard");
       if (!mounted.current || generation !== sessionGeneration.current) return;
       if (knownAlerts.current && notifications && "Notification" in window && Notification.permission === "granted") {
-        for (const alert of next.alerts) if (alert.active && !knownAlerts.current.has(alert.id)) new Notification(`Barangay ${next.user.barangay} · ${alert.label}`, { body: alert.reason, tag: alert.id });
+        for (const alert of next.alerts) if (alert.active && !knownAlerts.current.has(notificationSignature(alert))) new Notification(`Barangay ${next.user.barangay} · ${alert.label}`, { body: alert.reason, tag: alert.id });
       }
-      knownAlerts.current = new Set(next.alerts.map(alert => alert.id));
+      knownAlerts.current = new Set(next.alerts.filter(alert => alert.active).map(notificationSignature));
       setData(next); setSyncError("");
     } catch (cause) {
       if (!mounted.current || generation !== sessionGeneration.current) return;
@@ -84,6 +85,7 @@ export default function Home() {
   const history = alerts.filter(alert => !alert.active);
   const visibleAlerts = tab === "active" ? active : history;
   const selected = visibleAlerts.find(alert => alert.id === selectedId) ?? visibleAlerts[0];
+  useEffect(() => { setNote(""); setMessage(""); }, [selected?.id]);
   const station = data?.station;
   const connected = !syncError && Boolean(data?.connection?.online ?? data?.connection?.connected);
   const lastSeen = data?.connection?.lastSeen ?? data?.connection?.lastSeenAt ?? data?.connection?.updatedAt ?? station?.updatedAt ?? station?.updated_at;
