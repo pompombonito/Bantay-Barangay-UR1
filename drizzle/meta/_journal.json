@@ -8,6 +8,27 @@
       "when": 1794973915583,
       "tag": "0000_slim_corsair",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1794976699897,
+      "tag": "0001_mushy_selene",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1794991831558,
+      "tag": "0002_clear_mac_gargan",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1795025555001,
+      "tag": "0003_workable_bedlam",
+      "breakpoints": true
     }
   ]
 }

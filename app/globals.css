@@ -184,3 +184,48 @@ h1, h2, h3 { font-family: 'Instrument Sans', 'DM Sans', sans-serif; }
 @media (max-width: 560px) { .login-shell { display: block; min-height: 100vh; background: #f8faf7; } .login-story { padding: 24px; } .login-story-copy, .login-foot { display: none; } .login-side { padding: 40px 27px; align-items: flex-start; } .login-card { max-width: 100%; } .login-card h2 { font-size: 29px; } .sidebar { display: none; } .main-shell { margin-left: 0; } .topbar { height: 58px; padding: 0 18px; } .breadcrumb { font-size: 10px; gap: 7px; } .topbar-actions { gap: 4px; } .connection-pill { font-size: 0; padding: 6px; background: transparent!important; } .connection-pill span { width: 7px; height: 7px; } .dashboard { padding: 25px 18px 20px; } .page-heading { gap: 15px; margin-bottom: 20px; } .page-heading h1 { font-size: 25px; } .status-banner { gap: 11px; padding: 16px 13px; margin-bottom: 23px; } .status-symbol { width: 35px; height: 35px; } .status-symbol svg { width: 21px; } .status-banner h2 { font-size: 12px; } .status-banner p { font-size: 9px; } .section-line { flex-wrap: wrap; gap: 7px; } .section-line > span { font-size: 8px; } .metrics { gap: 8px; } .metric { padding: 13px 10px; } .metric-heading { align-items: flex-start; font-size: 8px; gap: 4px; } .metric-heading > span:first-child { max-width: 65px; line-height: 1.6; } .metric-icon svg { width: 14px; height: 14px; } .metric-value { font-size: 25px; margin-top: 15px; } .metric-value > span { font-size: 10px; margin-left: 4px; } .metric-help { font-size: 8px; line-height: 1.6; } .reading-context { font-size: 8px; margin-bottom: 22px; } .reading-context > span { max-width: 50%; } .review-grid { gap: 15px; } .alert-list { max-height: 300px; } .panel-heading { height: 53px; padding: 0 18px; } .detail-body { padding: 20px 18px; } .detail-time { font-size: 8px; } .dashboard-footer { flex-direction: column; gap: 10px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms!important; transition-duration: .01ms!important; } }
 
+.operator-panel { margin-bottom: 29px; border: 1px solid #d6e3d8; border-radius: 7px; background: #fff; overflow: hidden; }
+.operator-panel > .panel-heading { background: #f1f6f0; height: 53px; }
+.operator-panel .panel-heading h2 { display: flex; align-items: center; gap: 8px; color: #4d725a; }
+.operator-record { padding: 21px 22px; }
+.operator-record-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.operator-school { display: inline-flex; align-items: center; gap: 6px; color: #789479; font-size: 10px; }
+.operator-record time { color: #97a68e; font-size: 9px; flex-shrink: 0; }
+.operator-record h3 { color: #365f48; font-size: 17px; line-height: 1.5; margin-top: 10px; font-weight: 650; letter-spacing: -.3px; }
+.operator-reason { color: #7b9176; line-height: 1.8; font-size: 11px; margin-top: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.operator-evidence { margin-top: 15px; }
+.operator-evidence summary { cursor: pointer; font-size: 9px; color: #8b9d7f; width: fit-content; }
+.operator-evidence dl { display: flex; flex-wrap: wrap; gap: 12px 25px; padding-top: 13px; margin: 0; }
+.operator-evidence dl > div { min-width: 105px; }
+.operator-evidence dt { font-size: 8px; color: #a2ae95; }
+.operator-evidence dd { font-size: 10px; color: #7d9470; margin: 5px 0 0; }
+.operator-empty { padding: 22px; color: #93a28a; line-height: 1.8; font-size: 11px; }
+.operator-history { border-top: 1px solid #e7ede0; }
+.operator-history > summary { cursor: pointer; padding: 14px 22px; background: #fafcf7; font-size: 10px; color: #7f9471; }
+.operator-history > summary > span { font-size: 9px; margin-left: 6px; color: #a4b197; }
+.operator-history .operator-record { border-top: 1px solid #edf1e7; }
+.operator-history .operator-record h3 { font-size: 14px; }
+.operator-history-toggle { margin: 0 22px 20px; padding: 7px 0; color: #6d8e61; font-size: 10px; border: 0; background: transparent; text-decoration: underline; text-underline-offset: 3px; }
+.response-state { display: flex; align-items: center; gap: 5px; margin-top: 9px; font-size: 8px; font-style: normal; color: #709864; }
+.saved-response time { display: block; color: #9aaf8c; font-size: 8px; margin-top: 5px; }
+@media (max-width: 560px) { .operator-record, .operator-empty { padding: 18px; } .operator-record-heading { align-items: flex-start; flex-direction: column; gap: 8px; } .operator-record h3 { font-size: 15px; } .operator-panel > .panel-heading { padding: 0 15px; gap: 10px; } .operator-panel .panel-heading h2 { font-size: 11px; } .operator-panel .count-chip { font-size: 8px; white-space: nowrap; } }
+.source-mode-badge { display: inline-flex; align-items: center; padding: 5px 7px; border: 1px solid #d9e1d3; border-radius: 4px; color: #7d8e74; background: #f1f5eb; font-size: 8px; font-weight: 700; letter-spacing: .06em; white-space: nowrap; }
+.source-mode-badge.live { color: #347f66; border-color: #cce1d5; background: #edf6ef; }
+.source-mode-badge.practice { color: #a1844f; border-color: #e9dcc2; background: #faf5e8; }
+.sensor-note { display: flex; gap: 11px; align-items: flex-start; background: #faf5e8; border: 1px solid #e9dcc2; border-radius: 6px; padding: 15px 18px; margin-top: 14px; color: #8d794c; }
+.sensor-note > svg { flex-shrink: 0; margin-top: 2px; }
+.sensor-note strong { font-size: 11px; font-weight: 650; }
+.sensor-note p { margin-top: 5px; font-size: 10px; line-height: 1.8; }
+.joystick-evidence { margin: 14px 0 0; padding: 13px 17px; border: 1px solid #e0e6d8; border-radius: 5px; background: #fafcf8; color: #71846c; }
+.joystick-evidence summary { cursor: pointer; font-size: 10px; }
+.joystick-evidence p { font-size: 10px; line-height: 1.8; margin-top: 10px; }
+.joystick-evidence dl { display: flex; flex-wrap: wrap; gap: 13px 28px; margin-top: 12px; }
+.joystick-evidence dt { font-size: 9px; }
+.joystick-evidence dd { margin-top: 5px; font-size: 14px; }
+.joystick-evidence dd span { font-size: 8px; color: #8fa08b; }
+@media (max-width: 560px) {
+  .sensor-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sensor-metrics .metric-heading > span:first-child { max-width: 100px; }
+  .sensor-note { padding: 13px; }
+}
+@media (max-width: 560px) { .source-mode-badge { font-size: 7px; padding: 4px 5px; letter-spacing: .03em; } }

@@ -13,9 +13,10 @@ try {
   const accounts = [];
   const credentials = [];
   for (const barangay of ['641', '638', '404']) {
-    const password = randomBytes(15).toString('base64url');
+    // Prototype credentials: the barangay name doubles as both username and password.
+    const password = barangay;
     const salt = randomBytes(16).toString('hex');
-    const username = `barangay${barangay}`;
+    const username = barangay;
     accounts.push({ username, password, barangay });
     credentials.push({ username, barangay, name: `Barangay ${barangay}`, salt, passwordHash: await hashPassword(password, salt) });
   }

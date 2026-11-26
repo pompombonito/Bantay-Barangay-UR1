@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bantay-barangay",
+  "account_id": "85841ea1c2db0bf5beb95c56d29e11ba",
+  "main": "dist/server/index.js",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "no_bundle": true,
+  "find_additional_modules": true,
+  "workers_dev": true,
+  "assets": { "directory": "dist/client" },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "bantay-barangay-remote",
+    "database_id": "06e8afd1-cfe7-4f7f-b955-38d7b593a94c",
+    "migrations_dir": "drizzle"
+  }],
+  "observability": { "enabled": true },
+  "rules": [{ "type": "ESModule", "globs": ["**/*.js", "**/*.mjs"] }]
+}
